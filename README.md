@@ -9,18 +9,6 @@ BLAST Executables: You should have the BLAST+ executables (e.g., blastp, blastx)
 Protein Query File: A file containing protein sequences in FASTA format that you want to search against the nucleotide database.
 
 Nucleotide Database: A nucleotide sequence database in FASTA format against which you want to search for similarities.
-
-**Usage:**
-Place the protein query file (protein_query.fasta) and the nucleotide database file (nucleotide_db.fasta) in the same directory as this script.
-
-Open a terminal and navigate to the directory containing the script.
-
-Run the script using the following command:
-
-```bash
-bash blast_script.sh
-
-
 The script will perform the following steps:
 
 a. Translate the protein query file into a nucleotide query file using transeq from the EMBOSS suite. The translated sequences will be saved in a file called nucleotide_query.fasta.
@@ -33,4 +21,12 @@ BLAST Parameters: You can modify the BLAST parameters in the script to suit your
 
 Output Format: By default, the script outputs BLAST results in a human-readable format. You can change the output format using BLAST command-line options like -outfmt.
 
+**Usage:**
+Place the protein query file (protein_query.fasta) and the nucleotide database file (nucleotide_db.fasta) in the same directory as this script.
 
+Open a terminal and navigate to the directory containing the script.
+
+Run the script using the following command:
+
+```bash
+bash blast_script.sh
