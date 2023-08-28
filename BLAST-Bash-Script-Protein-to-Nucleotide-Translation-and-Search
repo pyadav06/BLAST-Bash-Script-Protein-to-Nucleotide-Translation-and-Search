@@ -1,0 +1,33 @@
+#!/bin/bash
+module load emboss/6.6  # To install emboss follow http://emboss.sourceforge.net/download/
+module load blast/2.14  # To install BLAST follow https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html#downloadblastdata
+
+# Paths to directories
+query_dir="query/"
+assembly_dir="assembly/"
+
+# Create a directory to store BLAST results
+blast_results_dir="blast_results/"
+mkdir -p "$blast_results_dir"
+
+# Create a database of the subject fasta sequence
+makeblastdb -in assembly/GCA_019243775.1_ASM1924377v1_genomic.fasta -dbtype nucl -parse_seqids -out GCA_019243775_Database
+
+# Convert query protein file to nucleotide fasta file 
+backtranseq -sequence query.fasta -outfile query_nucleotide.fasta
+
+# Iterate over each sequence file in the query directory if query directory has more than 1 files.
+for query_file in "$query_dir"/*.fasta; do
+    query_name=$(basename "$query_file" | cut -d. -f1)  # Extract the sequence name from the file name
+
+
+# Perform BLAST search assuming BLAST+ is already installed on the system. 
+blastn -query  "$query_file" -db  GCA_019243775_Database -outfmt "6 qseqid sseqid pident length qcovs evalue bitscore" -perc_identity 100 -out  "$blast_results_dir/$query_name.blast.tsv"
+
+
+# OR if you do not want to create a database then use the assembly file as subject file and run it agaisnt query as shown below:
+# blastn -query query_nucleotide.fasta -subject GCA_019243775.1_ASM1924377v1_genomic.fasta  -outfmt "6 qseqid sseqid pident length qcovs evalue bitscore" -perc_identity 100 -out "$blast_results_dir/$query_name.blast.tsv"
+
+done
+
+echo "BLAST search completed."
