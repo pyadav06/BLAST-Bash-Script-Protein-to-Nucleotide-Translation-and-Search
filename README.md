@@ -2,6 +2,7 @@
 This script performs a sequence similarity search using BLAST by translating a protein query file into a nucleotide query file and then searching it against a nucleotide sequence database. BLAST (Basic Local Alignment Search Tool) is a powerful tool for comparing biological sequences, such as proteins and nucleotides, to identify similarities and potential functional annotations.
 ##
 **Prerequisites:**
+
 Before using this script, make sure you have the following:
 
 BLAST Executables: You should have the BLAST+ executables (e.g., blastp, blastx) installed on your system. You can download BLAST from the NCBI website.
@@ -22,6 +23,7 @@ BLAST Parameters: You can modify the BLAST parameters in the script to suit your
 Output Format: By default, the script outputs BLAST results in a human-readable format. You can change the output format using BLAST command-line options like -outfmt.
 ##
 **Usage:**
+
 Place the protein query file (protein_query.fasta) and the nucleotide database file (nucleotide_db.fasta) in the same directory as this script.
 
 Open a terminal and navigate to the directory containing the script.
