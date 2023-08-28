@@ -17,8 +17,10 @@ Open a terminal and navigate to the directory containing the script.
 
 Run the script using the following command:
 
-bash
+'''bash
 bash blast_script.sh
+
+
 The script will perform the following steps:
 
 a. Translate the protein query file into a nucleotide query file using transeq from the EMBOSS suite. The translated sequences will be saved in a file called nucleotide_query.fasta.
