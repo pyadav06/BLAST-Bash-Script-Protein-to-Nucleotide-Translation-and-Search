@@ -27,4 +27,10 @@ a. Translate the protein query file into a nucleotide query file using transeq f
 
 b. Use BLAST to search the translated nucleotide query sequences against the nucleotide database. The BLAST results will be saved in a file called blast.tsv.
 
+Customization
+
+BLAST Parameters: You can modify the BLAST parameters in the script to suit your specific needs, such as changing the E-value threshold, alignment scoring parameters, and more. Refer to the BLAST documentation for details.
+
+Output Format: By default, the script outputs BLAST results in a human-readable format. You can change the output format using BLAST command-line options like -outfmt.
+
 
